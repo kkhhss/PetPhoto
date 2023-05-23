@@ -7,10 +7,9 @@ import android.view.View
 import android.widget.*
 
 class MainActivity : AppCompatActivity() {
-    lateinit var checkStart:CheckBox
+    lateinit var checkStart:Switch
     lateinit var rg:RadioGroup
     lateinit var linear:LinearLayout
-    lateinit var btnDone:Button
     lateinit var imgv: ImageView
 
     @SuppressLint("MissingInflatedId")
@@ -20,7 +19,6 @@ class MainActivity : AppCompatActivity() {
         checkStart = findViewById(R.id.check_start)
         rg = findViewById(R.id.rg)
         linear = findViewById(R.id.linear)
-        btnDone = findViewById(R.id.btn_done)
         imgv = findViewById(R.id.imgv)
         linear.visibility = View.INVISIBLE
 
@@ -33,7 +31,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        btnDone.setOnClickListener{
+        rg.setOnCheckedChangeListener{compoundButton, b ->
             when(rg.checkedRadioButtonId){
                 R.id.radio_dog -> imgv.setImageResource(R.drawable.dog)
                 R.id.radio_cat -> imgv.setImageResource(R.drawable.cat)
